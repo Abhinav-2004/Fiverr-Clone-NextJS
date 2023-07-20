@@ -86,7 +86,7 @@ function HeroBanner() {
             />
           </div>
           <button
-            className="h-[65px] mt-[12px] bg-[#1DBF73] text-white px-12 text-xl font-semibold rounded-r-md"
+            className="h-[65px] bg-[#1DBF73] text-white px-12 text-xl font-semibold rounded-r-md"
             onClick={() => router.push(`/search?q=${searchData}`)}
           >
             Search
