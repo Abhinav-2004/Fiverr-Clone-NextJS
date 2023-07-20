@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
-function HomeBanner() {
+function HeroBanner() {
   const router = useRouter();
   const [image, setImage] = useState(1);
   const [searchData, setSearchData] = useState("");
@@ -68,53 +68,53 @@ function HomeBanner() {
         />
       </div>
       <div className="z-10 relative w-[650px] flex justify-center flex-col h-full gap-5 ml-20">
-        <h1 className="text-white text-5xl leading-snug">
+        <h1 className="text-white text-2xl leading-snug">
           Find the perfect&nbsp;
           <i>freelance</i>
           <br />
           services for your business
         </h1>
-        <div className="flex align-middle">
+        <div className="flex allign-middle">
           <div className="relative">
-            <IoSearchOutline className="absolute text-gray-500 text-2xl flex align-middle h-full left-2" />
+            <IoSearchOutline className="absolute text-gray-500 mt-[10px] text-xl flex align-middle h-full left-2" />
             <input
               type="text"
-              className="h-14 w-[450px] pl-10 rounded-md rounded-r-none"
+              className="h-[65px] w-[450px] pl-10 rounded-md rounded-r-none text-xl"
               placeholder={`Try "building mobile app"`}
               value={searchData}
               onChange={(e) => setSearchData(e.target.value)}
             />
           </div>
           <button
-            className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounded-r-md"
+            className="h-[65px] mt-[12px] bg-[#1DBF73] text-white px-12 text-xl font-semibold rounded-r-md"
             onClick={() => router.push(`/search?q=${searchData}`)}
           >
             Search
           </button>
         </div>
-        <div className="text-white flex gap-4">
+        <div className="text-white text-xl flex gap-4">
           Popular:
           <ul className="flex gap-5">
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
+              className="w-[135px] text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex align-middle"
               onClick={() => router.push("/search?q=website design")}
             >
               Website Design
             </li>
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
+              className=" text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer w-[135px] flex justify-center"
               onClick={() => router.push("/search?q=wordpress")}
             >
               Wordpress
             </li>
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
+              className="w-[135px] flex justify-center text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
               onClick={() => router.push("/search?q=logo design")}
             >
               Logo Design
             </li>
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
+              className="w-[135px] flex justify-center text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300	cursor-pointer"
               onClick={() => router.push("/search?q=ai services")}
             >
               AI Services
@@ -126,4 +126,4 @@ function HomeBanner() {
   );
 }
 
-export default HomeBanner;
+export default HeroBanner;

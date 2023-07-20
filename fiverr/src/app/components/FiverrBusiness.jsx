@@ -19,19 +19,19 @@ function FiverrBusiness() {
         <ul className="flex flex-col gap-4">
           <li className="flex gap-2 items-center">
             <BsCheckCircle className="text-[#62646a] text-2xl" />
-            <span>Talent matching</span>
+            <span className="text-2xl">Talent matching</span>
           </li>
           <li className="flex gap-2 items-center">
             <BsCheckCircle className="text-[#62646a] text-2xl" />
-            <span>Dedicated account management</span>
+            <span className="text-2xl">Dedicated account management</span>
           </li>
           <li className="flex gap-2 items-center">
             <BsCheckCircle className="text-[#62646a] text-2xl" />
-            <span>Team collaboration tools</span>
+            <span className="text-2xl">Team collaboration tools</span>
           </li>
           <li className="flex gap-2 items-center">
             <BsCheckCircle className="text-[#62646a] text-2xl" />
-            <span>Business payment solutions</span>
+            <span className="text-2xl">Business payment solutions</span>
           </li>
         </ul>
         <button className="border text-base font-medium px-5 py-2   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"

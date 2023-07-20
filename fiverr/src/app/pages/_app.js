@@ -4,7 +4,7 @@ export default function App({Components, pageProps}){
     return(
         <div>
             <div className={`mb-auto w-full mx-auto`}>
-                <Component {...pageProps}/>;
+                <Components {...pageProps}/>;
             </div>
         </div>
     )

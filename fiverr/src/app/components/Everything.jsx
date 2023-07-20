@@ -38,13 +38,13 @@ function Everything() {
                   <BsCheckCircle className="text-[#62646a]" />
                   <h4>{title}</h4>
                 </div>
-                <p className="text-[#62646a]">{subtitle}</p>
+                <p className="text-[#62646a] text-xl">{subtitle}</p>
               </li>
             );
           })}
         </ul>
       </div>
-      <div className="relative h-96 w-2/4">
+      <div className="relative h-96 w-2/4 mt-20">
         <Image src="/everything.webp" fill alt="everything" />
       </div>
     </div>

@@ -17,7 +17,7 @@ function Services() {
           return (
             <li
               key={name}
-              className="flex flex-col justify-center items-center cursor-pointer hover:shadow-2xl hover:border-[#1DBF73]  border-2 border-transparent p-5 transition-all duration-500"
+              className="text-xl flex flex-col justify-center items-center cursor-pointer hover:shadow-2xl hover:border-[#1DBF73]  border-2 border-transparent p-5 transition-all duration-500"
               onClick={() => router.push(`/search?category=${name}`)}
             >
               <Image src={logo} alt="category" height={50} width={50} />

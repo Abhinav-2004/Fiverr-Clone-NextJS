@@ -3,8 +3,8 @@ import FiverrBusiness from "../components/FiverrBusiness";
 import HeroBanner from "../components/HeroBanner";
 import JoinFiverr from "../components/JoinFiverr";
 import PopularServices from "../components/PopularServices";
-import Services
- from "../components/Services";
+import Services from "../components/Services";
+import Footer from "../components/Footer"
 import Companies from "../components/Companies";
 function Index(){
     return(
@@ -16,6 +16,7 @@ function Index(){
             <Services/>
             <FiverrBusiness/>
             <JoinFiverr/>
+            <Footer/>
         </div>
     )
 }

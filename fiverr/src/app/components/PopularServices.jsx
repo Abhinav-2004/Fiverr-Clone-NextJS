@@ -45,7 +45,7 @@ function PopularServices() {
               className="relative cursor-pointer"
               onClick={() => router.push(`/search?q=${name.toLowerCase()}`)}
             >
-              <div className="absolute z-10 text-white left-5 top-4">
+              <div className="absolute z-10 text-white left-5 top-4 text-xl">
                 <span>{label}</span>
                 <h6 className="font-extrabold text-2xl">{name}</h6>
               </div>
