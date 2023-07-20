@@ -6,6 +6,7 @@ import PopularServices from "./components/Landing/PopularServices";
 import Services from "./components/Landing/Services";
 
 import Companies from "./components/Landing/Companies";
+import AuthWrapper from "./components/AuthWrapper";
 function Index(){
     return(
         <div>
@@ -16,6 +17,7 @@ function Index(){
             <Services/>
             <FiverrBusiness/>
             <JoinFiverr/>
+            <AuthWrapper/>
         </div>
     )
 }
