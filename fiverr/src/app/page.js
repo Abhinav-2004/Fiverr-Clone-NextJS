@@ -1,11 +1,11 @@
 import React from 'react'
-
-const Index = () => {
+import Index from './pages/index'
+const page = () => {
   return (
     <div className="text-6xl text-red-600">
-      Index
+      <Index/>
     </div>
   )
 }
 
-export default Index
+export default page
