@@ -1,5 +1,5 @@
 import React from "react";
-//This part of code is copied from fiverr website.
+//inspect element and copy element from original website 
 
 function FiverrLogo({ fillColor }) {
   return (

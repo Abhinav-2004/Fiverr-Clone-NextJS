@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdFacebook } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
-const AuthWrapper = () => {
-  return (
+import { useStateProvider } from "@/context/StateContext";
+import { reducerCases } from "@/context/constants";
+function AuthWrapper({type}){
+    const [{showLoginModal, showSignupModal}, dispatch]=useStateProvider();
+    const [values,setvalues]=useState({email:"", password:""});
+    const handleChange=(e)=>{
+        setvalues({...values, [e.target.name]:e.target.value})
+    };
+
+
+    return (
     <div className="fixed top-0 z-[100]">
       <div
-        className="h-[100vh] w-[100vw] backdrop-filter-md fixed top-0"
+        className="h-[100vh] w-[100vw] backdrop-blur-[3px] fixed top-0"
         id="blur-div"
       ></div>
       <div className="h-[100vh] w-[100vw] flex flex-col justify-center items-center">
@@ -15,7 +24,14 @@ const AuthWrapper = () => {
         >
           <div className="flex flex-col justify-center items-center p-8 gap-7">
             <h3 className="text-2xl font-semibold text-slate-700">
-              Login to Fiverr
+                {
+                    type==="login"?(
+                        "Login to Fiverr"
+                    )
+                    :(
+                        "Signup to Fiverr"
+                    )}
+              
             </h3>
 
             <div className="flex flex-col gap-5">
@@ -39,8 +55,57 @@ const AuthWrapper = () => {
                 name="email"
                 placeholder="email"
                 className="border border-slate-300 p-3 w-80"
+                value={values.email}
+                onChange={handleChange}
               />
+              <input
+                type="password"
+                name="password"
+                placeholder="password"
+                className="border border-slate-300 p-3 w-80"
+                value={values.password}
+                onChange={handleChange}
+              />
+              <button className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounder-r-md p-3 w-80">Continue</button>
             </div>
+          </div>
+          <div className="py-5 w-full flex items-center justify-center border-t border-r-slate-400">
+            <span className="text-sm text-slate-700">
+                {type==="login"?(
+                    <>
+                    Not a member yet?{" "}
+                    <span className="text-[#1DBF73] cursor-pointer" 
+                     onClick={() => {
+                        dispatch({
+                          type: reducerCases.TOGGLE_SIGNUP_MODAL,
+                          showSignupModal: true,
+                        });
+                        dispatch({
+                          type: reducerCases.TOGGLE_LOGIN_MODAL,
+                          showLoginModal: false,
+                        });
+                      }}> Join now</span>
+                    </>
+                )
+                :(
+                    <>
+                    Already a member ?{" "}
+                    <span className="text-[#1DBF73] cursor-pointer"
+                     onClick={() => {
+                        dispatch({
+                          type: reducerCases.TOGGLE_SIGNUP_MODAL,
+                          showSignupModal: false,
+                        });
+                        dispatch({
+                          type: reducerCases.TOGGLE_LOGIN_MODAL,
+                          showLoginModal: true,
+                        });
+                      }}
+                    > Login now</span>
+                    </>
+                )}
+                
+            </span>
           </div>
         </div>
       </div>
