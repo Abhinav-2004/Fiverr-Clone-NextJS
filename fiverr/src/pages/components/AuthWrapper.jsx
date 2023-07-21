@@ -3,7 +3,7 @@ import { MdFacebook } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { useStateProvider } from "@/context/StateContext";
 import { reducerCases } from "@/context/constants";
-import { SIGNUP_ROUTES } from "@/utils/constants";
+import { LOGIN_ROUTES, SIGNUP_ROUTES } from "@/utils/constants";
 import axios from "axios";
 function AuthWrapper({type}){
     const [{showLoginModal, showSignupModal}, dispatch]=useStateProvider();
@@ -15,12 +15,19 @@ function AuthWrapper({type}){
       try{
         const {email,password}=values;
         if(email && password){
-          const response=await axios.post(
+          const {
+            data:{user},
+          }=await axios.post(
+            type==='login'?LOGIN_ROUTES:
             SIGNUP_ROUTES,
             {email,password}, 
             {withCredentials:true}
             );
-            console.log(response);
+            dispatch({type:reducerCases.CLOSE_AUTH_MODAL})
+            if(user){
+              dispatch({type:reducerCases.SET_USER, userInfo:user});
+              window.location.reload();
+            }
         }
       }
       catch(err){
