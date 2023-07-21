@@ -96,7 +96,7 @@ function HeroBanner() {
           Popular:
           <ul className="flex gap-5">
             <li
-              className="w-[135px] text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex align-middle"
+              className="w-[135px] text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition-all duration-300 cursor-pointer flex justify-center"
               onClick={() => router.push("/search?q=website design")}
             >
               Website Design
