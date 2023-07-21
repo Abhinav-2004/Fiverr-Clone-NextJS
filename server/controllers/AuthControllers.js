@@ -21,9 +21,10 @@ export const signup=async(req,res,next)=>{
                     password: await generatePassword(password),
                 },
             });
-            return res.cookie("jwt", createToken(email,user.id),{httpOnly:false,
-            maxAge:maxAge*1000 }).status(201).json({id:user.id, email:user.email})
-        }
+            return res.status(200).json({
+                user:{id:user.id, email:user.email},
+                jwt:createToken(email, user.id)});
+        };
         return res.status(400).send("Email and Password are required");
     
     
@@ -49,8 +50,9 @@ export const login=async(req,res,next)=>{
             if(!auth){
                 return res.status(400).send("Invalid Password");
             }
-            return res.cookie("jwt", createToken(email,user.id),{httpOnly:false,
-            maxAge:maxAge*1000 }).status(200).json({id:user.id, email:user.email})
+            return res.status(200).json({
+                user:{id:user.id, email:user.email},
+                jwt:createToken(email, user.id)})
         }
         return res.status(400).send("Email and Password are required");
     

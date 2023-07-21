@@ -5,8 +5,11 @@ import { useStateProvider } from "@/context/StateContext";
 import { reducerCases } from "@/context/constants";
 import { LOGIN_ROUTES, SIGNUP_ROUTES } from "@/utils/constants";
 import axios from "axios";
+import { useCookies } from "react-cookie";
 function AuthWrapper({type}){
-    const [{showLoginModal, showSignupModal}, dispatch]=useStateProvider();
+  const [cookies,setCookies]  =useCookies();
+  
+  const [{showLoginModal, showSignupModal}, dispatch]=useStateProvider();
     const [values,setvalues]=useState({email:"", password:""});
     const handleChange=(e)=>{
         setvalues({...values, [e.target.name]:e.target.value})
@@ -16,13 +19,14 @@ function AuthWrapper({type}){
         const {email,password}=values;
         if(email && password){
           const {
-            data:{user},
+            data:{user,jwt},
           }=await axios.post(
             type==='login'?LOGIN_ROUTES:
             SIGNUP_ROUTES,
             {email,password}, 
             {withCredentials:true}
             );
+            setCookies("jwt",{jwt})
             dispatch({type:reducerCases.CLOSE_AUTH_MODAL})
             if(user){
               dispatch({type:reducerCases.SET_USER, userInfo:user});
