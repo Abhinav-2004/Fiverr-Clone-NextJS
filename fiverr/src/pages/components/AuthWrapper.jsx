@@ -3,13 +3,30 @@ import { MdFacebook } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { useStateProvider } from "@/context/StateContext";
 import { reducerCases } from "@/context/constants";
+import { SIGNUP_ROUTES } from "@/utils/constants";
+import axios from "axios";
 function AuthWrapper({type}){
     const [{showLoginModal, showSignupModal}, dispatch]=useStateProvider();
     const [values,setvalues]=useState({email:"", password:""});
     const handleChange=(e)=>{
         setvalues({...values, [e.target.name]:e.target.value})
     };
-
+    const handleClick=async()=>{
+      try{
+        const {email,password}=values;
+        if(email && password){
+          const response=await axios.post(
+            SIGNUP_ROUTES,
+            {email,password}, 
+            {withCredentials:true}
+            );
+            console.log(response);
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
 
     return (
     <div className="fixed top-0 z-[100]">
@@ -66,7 +83,7 @@ function AuthWrapper({type}){
                 value={values.password}
                 onChange={handleChange}
               />
-              <button className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounder-r-md p-3 w-80">Continue</button>
+              <button className="bg-[#1DBF73] text-white px-12 text-lg font-semibold rounder-r-md p-3 w-80" onClick={handleClick}>Continue</button>
             </div>
           </div>
           <div className="py-5 w-full flex items-center justify-center border-t border-r-slate-400">
