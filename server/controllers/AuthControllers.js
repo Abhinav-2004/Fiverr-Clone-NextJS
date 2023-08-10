@@ -62,3 +62,6 @@ export const login=async(req,res,next)=>{
         return res.status(500).send("Internal Server Error");
     }
 };
+export const getUserInfo=(req,res,next)=>{
+    console.log("hello");
+}

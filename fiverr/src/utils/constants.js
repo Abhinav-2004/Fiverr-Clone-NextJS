@@ -3,6 +3,7 @@ export const API_URL=`${HOST}/api`;
 export const AUTH_ROUTES=`${API_URL}/auth`;
 export const SIGNUP_ROUTES=`${AUTH_ROUTES}/signup`;
 export const LOGIN_ROUTES=`${AUTH_ROUTES}/login`
+export const GET_USER_INFO=`${AUTH_ROUTES}/get-user-info`;
 //Above four exports:
 //first one will return http://localhost:3001
 //second one will return http://localhost:3001/api
